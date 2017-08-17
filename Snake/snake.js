@@ -13,6 +13,7 @@
             ctx.fillStyle=this.color;
             ctx.fillRect(this.x,this.y,this.width,this.height);
         }
+       //检测碰撞
         crash(obj){
             var myleft = this.x;
             var myright = this.x + this.width;
@@ -28,26 +29,15 @@
             return true;
         }
     }
-
+//继承Snake
     class Apple extends Snake{
         constructor(x,y){
             super(x,y);
             this.color="lime";
         }
-//        crash(obj){
-//            console.log(this);
-//            super.crash(obj);
-//        }
     }
 
-//    function Apple() {
-//        Snake.call(this);
-//        this.x = 150;
-//        this.y = 100;
-//        this.color="lime";
-//    }
-//    Apple.prototype=new Snake();
-//    Apple.prototype.constructor=Apple;          //注意要加这句话
+
 
     var snake,xpoint,ypoint,apple,game,first;
     ctx.dir="right";        //初始方向为右;
@@ -75,6 +65,7 @@
             ctx.fillStyle="red";
             ctx.font="18px Arial ";
             ctx.fillText("score:"+Mygame.score,130,20);
+            //改变运动的方向
             switch (ctx.dir) {
                 case "top":
                     xpoint = snakes[snakes.length - 1].x + 0;
@@ -92,7 +83,7 @@
                 xpoint = snakes[snakes.length - 1].x ;
                 ypoint = snakes[snakes.length - 1].y+10;
                 break;
-            }                            //改变运动的方向
+            }                           
             first= snakes.shift();
             snake = new Snake(xpoint, ypoint);
             snakes.push(snake);
