@@ -3,6 +3,7 @@ let airs = [], air, bullets = [], bullet, obstacles = [], obstacle, obj = [];
         canvas: document.getElementById("canvas"),
         ctx: canvas.getContext("2d"),
         flag: 0,
+        //子弹发射间隔时间
         obs: 0,
         launch: false,
         score: 0,
